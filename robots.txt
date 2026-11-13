@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://glix-txt.github.io/smokedople/sitemap.xml
