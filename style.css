@@ -273,6 +273,48 @@ dialog form { text-align: right; margin-top: 1.1rem; }
   text-align: right; font: 700 .85rem var(--body); font-style: normal; min-width: 1.8rem; }
 .dist i.hl { background: var(--acid); color: var(--black); }
 
+/* ---------- leaderboards ---------- */
+/* right side holds 2 buttons: stacked on phones (keeps the logo centred and roomy), side by side on wider screens */
+header > .icons { position: relative; z-index: 2; flex: none; display: flex; flex-direction: column; gap: .45rem; }
+@media (min-width: 560px) {
+  header { max-width: 720px; }
+  header > .icons { flex: 0 0 5.7rem; flex-direction: row; }
+  header > .icons:last-child { justify-content: flex-end; }
+}
+.crowd { margin: .45rem 0 .1rem; font: 400 1.35rem/1.1 var(--pixel); color: var(--sun); text-transform: uppercase;
+  text-shadow: 2px 2px 0 var(--black); }
+.crowd.pop { animation: pop .35s steps(3) both; }
+#lbDlg { width: min(460px, calc(100% - 2rem)); }
+#lbSeg { display: flex; }
+#lbSeg button { flex: 1; }
+#lbBody { max-height: 58vh; overflow-y: auto; }
+.lb-dim { color: var(--dim) !important; font: 400 1.25rem var(--pixel); text-transform: uppercase; }
+.lb-day { padding: .7rem .8rem; margin: .6rem 0; background: var(--ink); border: 2px solid #2a2433; }
+.lb-day.cur { border-color: var(--acid); }
+.lb-day h3 { margin: 0; font: 400 1.05rem var(--heavy); text-transform: uppercase; display: flex; justify-content: space-between; align-items: baseline; }
+.lb-day h3 small { font: 400 1.1rem var(--pixel); color: var(--dim); }
+.lb-head { margin: .2rem 0 0 !important; font: 400 1.35rem var(--pixel); color: var(--sun) !important; text-transform: uppercase; }
+.lb-day .dist { margin-top: .5rem; gap: .25rem; }
+.lb-list { list-style: none; margin: .4rem 0; padding: 0; display: grid; gap: .3rem; }
+.lb-list li { display: grid; grid-template-columns: 2.2rem 1fr auto; align-items: center; gap: .5rem;
+  padding: .4rem .6rem; background: var(--ink); border: 2px solid #2a2433; }
+.lb-list li span { font: 400 1.3rem var(--pixel); color: var(--dim); }
+.lb-list li b { color: var(--white); font-weight: 700; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.lb-list li em { font: 400 1.05rem var(--heavy); font-style: normal; color: var(--acid); }
+.lb-list li:nth-child(1) { border-color: var(--sun); }
+.lb-list li:nth-child(1) span { color: var(--sun); }
+.lb-list li.me { background: var(--mag-deep); border-color: var(--mag); }
+.lb-me { font: 400 1.3rem var(--pixel); color: var(--acid) !important; text-transform: uppercase; }
+.lb-who { display: flex; align-items: center; justify-content: space-between; gap: .5rem; margin-top: .9rem !important;
+  font: 400 1.2rem var(--pixel); color: var(--dim) !important; text-transform: uppercase; }
+dialog button.linkish { background: none; border: 0; box-shadow: none; padding: 0; color: var(--mag); font: 400 1.2rem var(--pixel); text-decoration: underline; }
+dialog button.linkish:hover { transform: none; box-shadow: none; color: var(--white); }
+#nameInput { width: 100%; font: 700 1.05rem var(--body); color: var(--white); background: var(--black);
+  border: var(--edge); outline: 2px solid var(--acid); outline-offset: -5px; padding: .8rem 1rem; box-shadow: 4px 4px 0 var(--mag); }
+#nameInput:focus { outline-color: var(--mag); }
+.lb-err { color: var(--wrong) !important; font: 400 1.25rem var(--pixel); text-transform: uppercase; }
+#nameForm { text-align: left; }
+
 #toast {
   position: fixed; top: 1rem; left: 50%; transform: translateX(-50%) rotate(-2deg); z-index: 60;
   background: var(--sun); color: var(--black); padding: .45rem 1rem; border: var(--edge);

@@ -232,9 +232,16 @@
     try { window.goatcounter?.count?.({ path: name, title: name, event: true }); } catch {}
   }
 
+  // tells leaderboard.js about a round: "sd:finish" when one just ended, "sd:done" whenever a finished one is on screen
+  function announce(type) {
+    const detail = { play, kind: kind(), day, won: st.won, guesses: st.guesses.length };
+    try { document.dispatchEvent(new CustomEvent(type, { detail })); } catch {}
+  }
+
   function finish() {
     stopAudio();
     track(`${kind()}-${play}-${st.won ? "win" : "loss"}`);
+    announce("sd:finish");
     const k = statsKey(kind(), play);
     const s = store.get(k, emptyStats());
     if (play === "daily") {
@@ -300,6 +307,9 @@
       $("resultImg").hidden = !rel?.cover;
       $("nextBtn").hidden = play === "daily";
       $("countdown").hidden = play !== "daily";
+      announce("sd:done");
+    } else {
+      $("crowd").hidden = true;
     }
   }
 
@@ -515,4 +525,7 @@
   newGame();
   countdown(); setInterval(countdown, 1000);
   if (!store.get("seenHelp", false)) { store.set("seenHelp", true); $("helpDlg").showModal(); }
+  // leaderboard.js reads these
+  window.SD = { get mode() { return mode; }, get diff() { return diff; }, get day() { return day; }, get kind() { return kind(); }, label: (k) =>
+    ({ cover: "cover", "cover-hard": "cover · hard", song: "song · easy", "song-hard": "song · hard" })[k] || k };
 })();
