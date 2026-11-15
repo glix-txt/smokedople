@@ -514,6 +514,10 @@
     catch { toast("couldn't copy"); }
   };
   $("helpBtn").onclick = () => $("helpDlg").showModal();
+  $("dcBtn").onclick = async () => {
+    try { await navigator.clipboard.writeText("gero__"); toast("discord copied: gero__"); }
+    catch { toast("discord: gero__"); }
+  };
   $("statsBtn").onclick = showStats;
   $("statsSeg").onclick = (e) => {
     const p = e.target.dataset.play; if (!p) return;

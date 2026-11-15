@@ -315,6 +315,21 @@ dialog button.linkish:hover { transform: none; box-shadow: none; color: var(--wh
 .lb-err { color: var(--wrong) !important; font: 400 1.25rem var(--pixel); text-transform: uppercase; }
 #nameForm { text-align: left; }
 
+/* ---------- credit footer ---------- */
+.credit {
+  position: relative; z-index: 1; display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: .7rem;
+  max-width: 600px; margin: 2.6rem auto 1.6rem; padding: 0 1rem;
+  font: 400 1.35rem var(--pixel); color: var(--dim); text-transform: uppercase;
+}
+.credit b { color: var(--white); font-weight: 400; text-shadow: 2px 2px 0 var(--mag); }
+.credit .dc {
+  display: inline-flex; align-items: center; gap: .45rem; padding: .35rem .8rem;
+  background: #5865f2; color: var(--white); border: var(--edge); box-shadow: 3px 3px 0 var(--acid);
+  font: 400 1.3rem var(--pixel); text-transform: none; transform: rotate(-2deg); transition: transform .1s, box-shadow .1s;
+}
+.credit .dc:hover { transform: rotate(0) translate(-1px, -1px); box-shadow: 5px 5px 0 var(--acid); }
+.credit .dc:active { transform: translate(3px, 3px); box-shadow: 0 0 0 var(--acid); }
+
 #toast {
   position: fixed; top: 1rem; left: 50%; transform: translateX(-50%) rotate(-2deg); z-index: 60;
   background: var(--sun); color: var(--black); padding: .45rem 1rem; border: var(--edge);
