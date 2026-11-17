@@ -224,6 +224,16 @@ code { font-family: var(--pixel); font-size: 1.1em; color: var(--acid); }
   background: var(--black); border: var(--edge); outline: 2px solid var(--mag); outline-offset: -5px;
   box-shadow: 5px 5px 0 var(--acid);
 }
+/* PC (real mouse): keep the original layout — guesses under the picture, input below them, suggestions open upward.
+   phones/tablets keep the input right under the picture (html order). */
+@media (hover: hover) and (pointer: fine) {
+  #game:not([hidden]) { display: flex; flex-direction: column; }
+  #coverStage, #songStage { order: 1; }
+  #board { order: 2; }
+  #guessForm { order: 3; margin-top: 0; }
+  #result { order: 4; }
+  #acList { top: auto; bottom: calc(100% + 8px); }
+}
 #acList li { padding: .55rem .7rem; cursor: pointer; display: flex; justify-content: space-between; gap: .6rem; font-weight: 700; }
 #acList li small { color: var(--dim); font: 400 1.15rem var(--pixel); text-transform: uppercase; }
 #acList li.hi, #acList li:hover { background: var(--mag); color: var(--white); }

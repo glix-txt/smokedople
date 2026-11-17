@@ -423,6 +423,7 @@
   // so nudge the page up just enough that the box + a few suggestions stay visible above it
   function fitAc() {
     const ul = $("acList"), vv = window.visualViewport;
+    if (matchMedia("(hover: hover) and (pointer: fine)").matches) { ul.style.maxHeight = ""; return; }  // PC: list opens upward, as before
     const visibleBottom = vv ? vv.offsetTop + vv.height : window.innerHeight;
     const want = Math.min(ul.scrollHeight, 3 * 44 + 12);          // room for ~3 suggestions
     let space = visibleBottom - $("guess").getBoundingClientRect().bottom - 12;
