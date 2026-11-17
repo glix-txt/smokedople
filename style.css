@@ -189,6 +189,7 @@ code { font-family: var(--pixel); font-size: 1.1em; color: var(--acid); }
 
 /* ---------- guess board ---------- */
 .board { list-style: none; padding: 0; margin: 1.4rem 0 1rem; display: grid; gap: .45rem; }
+#guessForm { margin-top: 1.4rem; }
 .board li {
   display: flex; justify-content: space-between; align-items: center; gap: .5rem;
   min-height: 2.8rem; padding: .5rem .9rem; background: rgba(13,11,18,.85);
@@ -218,7 +219,7 @@ code { font-family: var(--pixel); font-size: 1.1em; color: var(--acid); }
 #guess::placeholder { color: #6f6880; font: 400 1.4rem var(--pixel); text-transform: uppercase; }
 #guess:focus { outline-color: var(--mag); box-shadow: 4px 4px 0 var(--acid); }
 #acList {
-  position: absolute; bottom: calc(100% + 8px); left: 0; right: 0; z-index: 5;
+  position: absolute; top: calc(100% + 8px); left: 0; right: 0; z-index: 5;
   list-style: none; margin: 0; padding: .3rem; max-height: 15rem; overflow-y: auto;
   background: var(--black); border: var(--edge); outline: 2px solid var(--mag); outline-offset: -5px;
   box-shadow: 5px 5px 0 var(--acid);
